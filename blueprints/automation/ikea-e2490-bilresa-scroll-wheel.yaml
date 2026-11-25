@@ -204,7 +204,7 @@ trigger:
   - platform: mqtt
     id: z2m-payload
     topic: !input z2m_topic
-    value_template: "{{ value_json.action if value_json is defined and value_json is mapping else '' }}"
+    value_template: "{{ value_json.get('action', '') if value_json is defined and value_json is mapping else '' }}"
     payload: brightness_move_to_level
 
   # ZHA events
